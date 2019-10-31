@@ -9,7 +9,7 @@ pipeline {
 		stage('test') {
 			steps {
 				echo "Testing now"
-				./robot-runner.sh
+				sh 'robot-runner.sh'
 			}
 		}
 	}
