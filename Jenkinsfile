@@ -8,7 +8,7 @@ pipeline {
 		}
 		stage('test') {
 			steps {
-				robot ./robo.robot
+				echo "Testing now"
 			}
 		}
 	}
