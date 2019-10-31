@@ -1,3 +1,3 @@
 #!/bin/bash
 
-robot -d results robo.robot
+/usr/local/bin/robot -d results robo.robot
