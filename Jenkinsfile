@@ -1,5 +1,8 @@
 pipeline {
 	agent any
+	environment {
+    SANITY = true
+	}
 	stages {
 		stage('build') {
 			steps {
@@ -10,13 +13,19 @@ pipeline {
 			steps {
 				echo "Testing now"
  				sh '''#!/bin/bash
-                 			echo "hello world" 
+                 			echo "hello world"
 					./robot-runner.sh
-         			    '''				
+         			    '''
 			}
-			post {
-			     robot 'results' 
-			}
+			when { environment name: 'SANITY', value: 'false' }
+				steps {
+					echo 'SANITY is false'
+				}
 		}
+		 post {
+			     always {
+								 robot 'results'
+			     }
+		 }
 	}
 }
