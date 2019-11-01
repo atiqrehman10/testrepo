@@ -14,6 +14,9 @@ pipeline {
 					./robot-runner.sh
          			    '''				
 			}
+			post {
+			     robot 'results' 
+			}
 		}
 	}
 }
