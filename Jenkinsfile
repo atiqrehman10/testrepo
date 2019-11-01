@@ -15,7 +15,9 @@ pipeline {
          			    '''				
 			}
 			post {
-			     robot 'results' 
+			     always {
+			     	     robot 'results'
+			     } 
 			}
 		}
 	}
