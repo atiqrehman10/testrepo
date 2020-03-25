@@ -10,17 +10,15 @@ pipeline {
 			}
 		}
 		stage('test') {
+			when { environment name: 'SANITY', value: 'false' }
 			steps {
+				echo "SANITY is false"
 				echo "Testing now"
  				sh '''#!/bin/bash
                  			echo "hello world"
 					./robot-runner.sh
          			    '''
 			}
-			when { environment name: 'SANITY', value: 'false' }
-				steps {
-					echo 'SANITY is false'
-				}
 
 		 post {
 			     always {
