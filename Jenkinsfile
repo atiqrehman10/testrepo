@@ -21,11 +21,12 @@ pipeline {
 				steps {
 					echo 'SANITY is false'
 				}
-		}
+
 		 post {
 			     always {
 								 robot 'results'
 			     }
 		 }
+	 }
 	}
 }
