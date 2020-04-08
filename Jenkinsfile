@@ -21,7 +21,7 @@ pipeline {
               echo "JOB NAME:  ${JOB_NAME} "
               echo "IS GERRIT: ${IS_GERRIT_BUILD} "
               echo "GIT TAG:   ${GIT_TAG} "
-              echo "IS SANITY: ${IS_SANITY} "
+              echo "IS FULL: ${IS_FULL} "
               echo "SANITIZE:  ${SANITIZE} "
 
               git tag -l '''
