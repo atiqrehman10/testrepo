@@ -5,7 +5,7 @@ pipeline {
     IS_GERRIT_BUILD = "${JOB_NAME == 'first-pipeline'}"
     GIT_TAG = sh(script: 'git tag -l', returnStdout: true).trim()
     IS_FULL = "${GIT_TAG == 'FULL' ? true: false}"
-    SANITIZE = "${IS_GERRIT_BUILD && !IS_FULL}"
+    SANITIZE = "${IS_GERRIT_BUILD && IS_FULL == 'false'}"
   }
 	stages {
 		stage('build') {
