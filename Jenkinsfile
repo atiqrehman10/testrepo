@@ -3,7 +3,6 @@ pipeline {
 	environment {
     // If the gerrit build has set tag "SANITY", then the variable "SANITIZE" is true.
     IS_GERRIT_BUILD = "${JOB_NAME == 'first-pipeline'}"
-		GIT_TEST = sh(script: 'git tag --delete SANITY', returnStdout: true).trim()
     GIT_TAG = sh(script: 'git tag -l', returnStdout: true).trim()
     IS_FULL = "${GIT_TAG == 'FULL' ? true: false}"
     SANITIZE = "${IS_GERRIT_BUILD && IS_FULL == 'false'}"
@@ -32,6 +31,7 @@ pipeline {
                  			echo "hello world"
 					./robot-runner.sh
          			    '''
+				sh 'git tag --delete SANITY'
 			}
 
 		 post {
