@@ -30,14 +30,14 @@ pipeline {
  				sh '''#!/bin/bash
                  			echo "hello world"
 					./robot-runner.sh
-         			    '''
-        if (env.SANITIZE == 'false') {
-					echo  'SANITIZE is false'
+        script{ 			    '''
+	        if (env.SANITIZE == 'false') {
+						echo  'SANITIZE is false'
+					}
+					else {
+						echo  'SANITIZE is true'
+					}
 				}
-				else {
-					echo  'SANITIZE is true'
-				}
-
 
 			}
 
