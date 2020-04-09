@@ -44,7 +44,7 @@ pipeline {
 		 post {
 			     always {
 
-								 sh 'git tag --delete $(git tag -l)'
+								 sh 'git push --delete origin $(git tag -l)'
 								 robot 'results'
 			     }
 		 }
