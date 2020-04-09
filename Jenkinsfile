@@ -31,11 +31,19 @@ pipeline {
                  			echo "hello world"
 					./robot-runner.sh
          			    '''
-				sh 'git tag --delete SANITY'
+        if (env.SANITIZE == 'false') {
+					echo  'SANITIZE is false'
+				}
+				else {
+					echo  'SANITIZE is true'
+				}
+
+
 			}
 
 		 post {
 			     always {
+						     sh 'git tag | xargs git tag -d'
 								 robot 'results'
 			     }
 		 }
