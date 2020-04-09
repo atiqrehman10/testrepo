@@ -26,7 +26,6 @@ pipeline {
 
               git tag -l '''
 
-
 				echo "Testing now"
  				sh '''#!/bin/bash
                  			echo "hello world"
