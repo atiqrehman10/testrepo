@@ -39,7 +39,6 @@ pipeline {
 						echo  'SANITIZE is true'
 					}
 				}
-
 			}
 		 post {
 			     always {
