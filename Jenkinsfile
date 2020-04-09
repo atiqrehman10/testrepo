@@ -2,7 +2,7 @@ pipeline {
 	agent any
 	environment {
     // If the gerrit build has set tag "SANITY", then the variable "SANITIZE" is true.
-    IS_GERRIT_BUILD = "${JOB_NAME.contains('first')}"
+    IS_GERRIT_BUILD = "${JOB_NAME.contains('second')}"
     GIT_TAG = sh(script: 'git tag -l', returnStdout: true).trim()
     IS_FULL = "${GIT_TAG == 'FULL' ? true: false}"
     SANITIZE = "${IS_GERRIT_BUILD && IS_FULL == 'false'}"
