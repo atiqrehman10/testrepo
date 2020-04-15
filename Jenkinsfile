@@ -2,6 +2,7 @@ pipeline {
 	agent any
 	environment {
 
+
     // If the gerrit build has set tag "SANITY", then the variable "SANITIZE" is true.
     IS_GERRIT_BUILD = currentBuild.projectName.contains('tools.pa.gerrit')
     GIT_TAG = sh(script: 'git tag -l', returnStdout: true).trim()
