@@ -40,7 +40,7 @@ pipeline {
 					else {
 						echo  'SANITIZE is true'
 					}
-					echo  currentBuild.projectName
+					echo  "${currentBuild.projectName}""
 				}
 			}
 		 post {
