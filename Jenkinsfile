@@ -20,7 +20,7 @@ pipeline {
         //Clean workspace before build starts.
         sh 'git clean -fxd .'
         sh '''#!/bin/bash -le
-              echo "JOB NAME:  ${JOB_NAME} "
+              echo "Project NAME:  ${currentBuild.projectName} "
               echo "IS GERRIT: ${IS_GERRIT_BUILD} "
               echo "GIT TAG:   ${GIT_TAG} "
               echo "IS FULL: ${IS_FULL} "
